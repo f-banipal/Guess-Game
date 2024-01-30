@@ -10,16 +10,17 @@ alert("GUESS GAME: We kept a number between 0-100. Please guess the number!");
 
 for (let trial = 1; trial <= 5; trial++) {
   const userGuess = Number(prompt("Please guess the number!"));
-  console.log(userGuess);
+  console.log(userGuess);  
 
   if (isNaN(userGuess) || userGuess < 0 || userGuess > 100) {
-    console.log();
+    console.log("Invalid login. Please enter a number between 0 and 100.");
     alert("Invalid login. Please enter a number between 0 and 100.");
     continue;
   }
 
   if (userGuess === randomNumber) {
     console.log(`Congrats! You guessed it right on the ${trial}. try.`);
+    alert(`Congrats! You guessed it right on the ${trial}. try.`);
     break;
   } else {
     remainingTrial--;
@@ -27,10 +28,12 @@ for (let trial = 1; trial <= 5; trial++) {
     if (remainingTrial > 0) {
       const hint = userGuess < randomNumber ? "INCREASE" : "DECREASE";
       console.log(
-        `Unfortunately wrong! Remaining trial: ${remainingTrial}. Please ${hint} the number.`
-      );
+        `Unfortunately wrong! Remaining trial: ${remainingTrial}. Please ${hint} the number.`);
+        alert(`Unfortunately wrong! Remaining trial: ${remainingTrial}. Please ${hint} the number.`);
     } else {
       console.log(`Sorry you lost. The correct number is ${randomNumber}.`);
     }
   }
 }
+
+
